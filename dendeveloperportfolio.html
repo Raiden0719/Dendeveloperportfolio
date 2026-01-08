@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Raiden Corollo | Developer Portfolio</title>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+
+section {
+    min-height: 100vh;
+    padding: 100px 10%;
+    display: flex;
+    align-items: center;
+}
+
+
+#home {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+#home h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#home p {
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+#home {
+    display: flex;
+    align-items: center;       
+    justify-content: space-between;
+    padding: 100px 10%;
+}
+
+.home-content {
+    max-width: 550px;
+}
+
+.home-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-image img {
+    width: 380px;     
+    max-width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+}
+
+
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 28px;
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    background: white;
+}
+
+
+#about {
+    background: linear-gradient(to right, #1e293b, #334155);
+    justify-content: center;
+}
+
+.about-card {
+    background: white;
+    max-width: 700px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.about-card h1 {
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.about-card p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.about-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-card li {
+    background: #f1f5f9;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+
+#resume {
+    position: relative;
+    background: linear-gradient(135deg, #020617, #0f172a, #020617);
+    color: white;
+    overflow: hidden;
+}
+
+#resume::before {
+    content: "<html>  {  code();  }  </html>";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 120px;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.04);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.resume-container {
+    position: relative;
+    z-index: 1;
+    background: white;
+    color: #1e293b;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+#resume h1 {
+    color: #0f172a;
+}
+
+#resume h2 {
+    color: #334155;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+#resume h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+#resume ul {
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+
+#contact {
+    background: linear-gradient(135deg, #dbeafe, #e0f2fe, #f0f9ff);
+    justify-content: center;
+}
+
+.contact-card {
+    background: white;
+    width: 360px;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+}
+
+.contact-card h2 {
+    color: #1e3a8a;
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.social-link i {
+    margin-right: 10px;
+}
+
+.facebook { background: #1877f2; }
+.facebook:hover { background: #145dbf; }
+
+.instagram { background: #e1306c; }
+.instagram:hover { background: #c01f5a; }
+
+.github { background: #24292e; }
+.github:hover { background: #161b1f; }
+
+/* FOOTER */
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* RESUME LAYOUT WITH IMAGE */
+.resume-container {
+    display: flex;
+    align-items: center;        /* vertical center */
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.resume-text {
+    flex: 1;
+}
+
+.resume-image {
+    flex: 0.6;
+    display: flex;
+    justify-content: center;
+}
+
+.resume-image img {
+    width: 260px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <div class="home-content">
+        <h1>Hi, I'm Raiden Corollo 👋</h1>
+        <p>Beginner Developer passionate about Web and Game Development.</p>
+        <a href="#about" class="btn">About Me</a>
+    </div>
+
+    <div class="home-image">
+        <img src="denpic.jpg" alt="Raiden Corollo">
+    </div>
+</section>
+
+
+<section id="about">
+    <div class="about-card">
+        <h1>About Me</h1>
+        <p><b>Raiden Corollo</b>, beginner web developer learning HTML, CSS, and Java.</p>
+        <p>Grade 12 Senior High School student who enjoys building simple projects.</p>
+
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Java</li>
+            
+        </ul>
+    </div>
+</section>
+
+<section id="resume">
+    <div class="resume-container">
+
+      
+        <div class="resume-text">
+            <h1>This is my RESUME</h1>
+
+            <h2>This resume highlights my journey as a Grade 12 Senior High School student passionate 
+                about technology and programming. It showcases my skills in web development and programming 
+                languages such as HTML, CSS, and Java. Although I am at the beginner level, I demonstrate my dedication 
+                through personal projects and continuous learning. My education, skills, and projects reflect my commitment
+                 to growth and my enthusiasm for building practical applications.</h2>
+           
+
+        
+        </div>
+
+    
+        <div class="resume-image">
+           
+           <a href="resume.jpg" target="_blank">
+    <img src="resume.jpg" alt="Raiden Corollo Resume Photo">
+</a>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<section id="contact">
+    <div class="contact-card">
+        <h2>Contact Me</h2>
+
+       
+        <a href="https://www.facebook.com/share/17zirLoTBj/" class="social-link facebook">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+
+        <a href="https://www.instagram.com/raid_en0719/" class="social-link instagram">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+
+        <a href="https://github.com/Raiden0719" class="social-link github">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+    </div>
+</section>
+
+<footer>
+     Raiden Corollo | Developer Portfolio
+</footer>
+
+</body>
+</html>
